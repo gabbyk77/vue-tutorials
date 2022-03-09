@@ -4,8 +4,8 @@ const app = Vue.createApp({
     return {
       //creating an object with the curly brackets ^
       showBooks: true,
-      title: 'The Final Empire',
-      author: 'Brandon Sanderson',
+      title: 'Naruto',
+      author: 'Masashi Kishimoto',
       age: 45
     }
   },
