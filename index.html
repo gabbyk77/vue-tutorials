@@ -18,8 +18,18 @@
   <body>
 
     <div id="app">
+      <!-- attribute binding
+      v-bind:href, or just :href-->
+      <a :href="url">:0</a>
+
       <div v-if="showBooks">
-        <p>{{ title }} - {{ author }} - {{ age }}</p>
+        <ul>
+          <li v-for="book in books">
+            <img :src="book.img" alt="book.title">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.author }}</p>
+          </li>
+        </ul>
       </div>
 
       <button @click="toggleShowBooks">
