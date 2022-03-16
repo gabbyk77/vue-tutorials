@@ -6,9 +6,9 @@ const app = Vue.createApp({
       url: 'http://www.thenetninja.co.uk',
       showBooks: true,
       books: [
-        {title: 'name of the wind', author: 'patrick rothfuss', img: 'img/xiao.jpg'},
-        {title: 'the way of kings', author: 'brandon sanderson', img: 'img/sonic.jpg'},
-        {title: 'the final empire', author: 'snjdavkdvnfd', img: 'img/gen.jpg'},
+        {title: 'name of the wind', author: 'patrick rothfuss', img: 'img/xiao1.jpg', isFav: true},
+        {title: 'the way of kings', author: 'brandon sanderson', img: 'img/genshin.jpg', isFav: false},
+        {title: 'the final empire', author: 'snjdavkdvnfd', img: 'img/gens.jpg', isFav: true},
       ]
       // title: 'Naruto',
       // author: 'Masashi Kishimoto',
@@ -21,8 +21,9 @@ const app = Vue.createApp({
     toggleShowBooks() {
       this.showBooks = !this.showBooks
     },
+
     // changeTitle(abc) {
-    //   //this.title = 'Words of Radiance'
+    //   this.title = 'Words of Radiance'
     //   this.title = abc
 
     handleEvent(e, data) {
@@ -34,6 +35,11 @@ const app = Vue.createApp({
     handleMousemove(e) {
       this.x = e.offsetX
       this.y = e.offsetY
+    }
+  },
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => book.isFav)
     }
   }
 })
