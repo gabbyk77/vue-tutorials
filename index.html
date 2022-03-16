@@ -5,6 +5,33 @@
     <title>Vue Tutorials</title>
     <script src="https://unpkg.com/vue@3"></script>
     <style media="screen">
+    body {
+      background: #eee;
+      max-width: 960px;
+      margin: 20px auto;
+    }
+    p, h3, ul{
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style-type: none;
+      background: #fff;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    li.fav{
+      background: #ff9ed2;
+      color: white;
+    }
+    img{
+      height: 200px;
+      width: 400px;
+    }
       .box{
         padding: 100px 0;
         width: 400px;
@@ -18,13 +45,14 @@
   <body>
 
     <div id="app">
+      <p>{{ filteredBooks }}</p>
       <!-- attribute binding
       v-bind:href, or just :href-->
       <a :href="url">:0</a>
 
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books">
+          <li v-for="book in filteredBooks" :class="{ fav: book.isFav }">
             <img :src="book.img" alt="book.title">
             <h3>{{ book.title }}</h3>
             <p>{{ book.author }}</p>
